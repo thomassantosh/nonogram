@@ -1,5 +1,6 @@
 import sys
 import re
+import random
 import numpy as np
 import pandas as pd
 from PIL import Image
@@ -8,10 +9,9 @@ import imgkit
 
 
 class Nonogram:
-    def __init__(self, filepath):
-        self.filepath = filepath
+    def __init__(self):
+        self.filepath = self.random_image()
         self.img_name = filepath.split('/')[-1:][0].split('.png')[0]
-        #self.caption = str(self.img_name) + ' nonogram'
         # Filepaths
         self.pixeled_image = './results/' + str(self.img_name) + '_pixelated.png'
         self.grayscale_pixelized_image = './pixelized_grayscale_image.png'
@@ -31,6 +31,12 @@ class Nonogram:
         self.col_mapping = self.columnmap()
         self.final_nonogram_image = self.generate_nonogram()
         self.create_pdf_document = self.create_pdf()
+
+    def random_image(self):
+        random_image_path = random.choice([
+            './imgs/coffee.png', './imgs/cupcake.png', './imgs/snowflake.png', './imgs/unicorn.png'
+            ])
+        return random_image_path
 
     # Open image to dataframe
     def img_to_df(self):
