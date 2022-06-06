@@ -11,7 +11,7 @@ import imgkit
 class Nonogram:
     def __init__(self):
         self.filepath = self.random_image()
-        self.img_name = filepath.split('/')[-1:][0].split('.png')[0]
+        self.img_name = self.filepath.split('/')[-1:][0].split('.png')[0]
         # Filepaths
         self.pixeled_image = './results/' + str(self.img_name) + '_pixelated.png'
         self.grayscale_pixelized_image = './pixelized_grayscale_image.png'
@@ -136,12 +136,11 @@ class Nonogram:
  
         imagelist = [pixelated, puzzle, solution]
 
-        original.save('./' + str(self.img_name) + '_PDFimages.pdf',save_all=True, append_images=imagelist)
+        original.save('./results/' + str(self.img_name) + '_PDFimages.pdf',save_all=True, append_images=imagelist)
 
 
 def main():
-    image_filepath = sys.argv[1]
-    nonogram = Nonogram(image_filepath)
+    nonogram = Nonogram()
     if nonogram:
         print("Process completed.")
     else:
