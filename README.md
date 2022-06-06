@@ -4,6 +4,6 @@ selects an image from the `imgs` directory, produces a pixelized image, along wi
 solution in the `results` directory.
 
 ## Sample commands to run
-`conda create -n nonogram python=3.9` //to create the virtual environment
-`make install` //to install third-party dependencies from `Makefile`
-`python nonogram.py` //to run the python script
+- `conda create -n nonogram python=3.9` //to create the virtual environment
+- `make install` //to install third-party dependencies from `Makefile`
+- `python nonogram.py` //to run the python script
